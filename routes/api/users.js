@@ -33,7 +33,8 @@ router.post('/register',(req,res) => {
     User.findOne({ email: req.body.email })
     .then(user => {
         if(user){
-            return res.status(400).json({email: 'Email already exists'});
+            errors.email = 'Email already exists';
+            return res.status(400).json({errors});
         }
         else{
             const avatar = gravatar.url(req.body.email, {
@@ -79,7 +80,8 @@ router.post('/login', (req, res) => {
         .then(user => {
             //check for user
             if(!user){
-                return res.status(404).json({email: "User Not Found!"});
+                errors.email = "User Not Found"
+                return res.status(404).json({errors});
             }
 
             //check password
@@ -89,7 +91,7 @@ router.post('/login', (req, res) => {
                         //User Matched
                         const payload = { id: user.id, name: user.name, avatar: user.avatar} //create jwt payload
                         
-                        // Sign TOken
+                        // Sign Token
                         jwt.sign(
                             payload, 
                             keys.secretOrKey, 
@@ -102,7 +104,8 @@ router.post('/login', (req, res) => {
                         });
                     }
                     else{
-                        return res.status(400).json({password: 'Password Incorrect!'});
+                        errors.password = "Password Incorrect"
+                        return res.status(400).json({errors});
                     }
                 })
         });
@@ -112,6 +115,7 @@ router.post('/login', (req, res) => {
 // @desc    Return the current user 
 // @access  Private
 router.get('/current', passport.authenticate('jwt', {session:false}),(req,res) =>{
+    // the token would put the current user to req 
     res.json(req.user);
 });
 
