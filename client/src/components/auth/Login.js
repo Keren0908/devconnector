@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import classnames from 'classnames';
+import axios from 'axios';
 
 class Login extends Component {
   constructor(props) {
@@ -14,6 +16,7 @@ class Login extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
+  //actually we don't need to bind this
   onChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
@@ -26,7 +29,9 @@ class Login extends Component {
       password: this.state.password
     }
 
-    console.log(user);
+    
+
+    
   }
 
   render() {
