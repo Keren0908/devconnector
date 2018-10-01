@@ -14,9 +14,7 @@ class Register extends Component {
       email: "",
       password: "",
       password2: "",
-      errors: {
-        email:'dfd'
-      }
+      errors: {}
     };
 
     this.onChange = this.onChange.bind(this);
@@ -92,6 +90,7 @@ class Register extends Component {
                     value={this.state.email}
                     onChange={this.onChange}
                   />
+                  {errors.email ? errors.email : null}
                   {errors.email && (<div className="invalid-feedback">{errors.email}</div>)}
                   <small className="form-text text-muted">
                     This site uses Gravatar so if you want a profile image, use
@@ -109,6 +108,7 @@ class Register extends Component {
                     value={this.state.password}
                     onChange={this.onChange}
                   />
+                  {errors.password ? errors.password : null}
                   {errors.password && (<div className="invalid-feedback">{errors.password}</div>)}
                 </div>
                 <div className="form-group">
@@ -122,6 +122,7 @@ class Register extends Component {
                     value={this.state.password2}
                     onChange={this.onChange}
                   />
+                  {errors.password2 ? errors.password2 : null}
                   {errors.password2 && (<div className="invalid-feedback">{errors.password2}</div>)}
                 </div>
                 <input type="submit" className="btn btn-info btn-block mt-4" />
