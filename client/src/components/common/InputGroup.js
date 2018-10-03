@@ -14,7 +14,7 @@ const InputGroup = ({
   return (
     <div className="input-group mb-3">
         <div className="input-group-prepend">
-            <span className="input-grou-text">
+            <span className="input-group-text">
                 <i className={icon} />
             </span>
         </div>
@@ -39,7 +39,7 @@ InputGroup.propTypes = {
   error: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   type: PropTypes.string.isRequired,
-  icon: Proptypes.string
+  icon: PropTypes.string
 };
 
 InputGroup.defaultProps = {
