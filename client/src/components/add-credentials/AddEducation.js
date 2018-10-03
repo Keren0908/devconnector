@@ -4,7 +4,7 @@ import TextFieldGroup from "../common/TextFieldGroup";
 import TextAreaFieldGroup from "../common/TextAreaFieldGroup";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { addEducation } from '../../actions/profileActions';
+import { addEducation } from "../../actions/profileActions";
 
 class AddEducation extends Component {
   constructor(props) {
@@ -26,38 +26,37 @@ class AddEducation extends Component {
     this.onCheck = this.onCheck.bind(this);
   }
 
-  componentWillReceiveProps(nextProps){
-      if(nextProps.errors){
-          this.setState({errors: nextProps.errors});
-      }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
   }
 
   onSubmit(e) {
-      e.preventDefault();
+    e.preventDefault();
 
-      const eduData = {
-          school: this.state.school,
-          degree: this.state.degree,
-          fieldofstudy: this.state.fieldofstudy,
-          from: this.state.from,
-          to: this.state.to,
-          current: this.state.current,
-          description: this.state.description
-      }
+    const eduData = {
+      school: this.state.school,
+      degree: this.state.degree,
+      fieldofstudy: this.state.fieldofstudy,
+      from: this.state.from,
+      to: this.state.to,
+      current: this.state.current,
+      description: this.state.description
+    };
 
-      this.props.addEducation(eduData, this.props.history);
+    this.props.addEducation(eduData, this.props.history);
   }
 
   onChange(e) {
-      this.setState({ [e.target.name ]: e.target.value});
+    this.setState({ [e.target.name]: e.target.value });
   }
 
   onCheck(e) {
-      this.setState({
-          current: !this.state.current,
-          disabled: !this.state.disabled
-      })
-
+    this.setState({
+      current: !this.state.current,
+      disabled: !this.state.disabled
+    });
   }
 
   render() {
@@ -92,7 +91,7 @@ class AddEducation extends Component {
                   error={errors.degree}
                 />
                 <TextFieldGroup
-                  placeholder="Field Of Study"
+                  placeholder="* Field Of Study"
                   name="fieldofstudy"
                   value={this.state.fieldofstudy}
                   onChange={this.onChange}
@@ -126,18 +125,22 @@ class AddEducation extends Component {
                     id="current"
                   />
                   <label htmlFor="current" className="form-check-label">
-                    Current 
+                    Current
                   </label>
                 </div>
-                  <TextAreaFieldGroup
-                    placeholder="Program Description"
-                    name="description"
-                    value={this.state.description}
-                    onChange={this.onChange}
-                    error={errors.description}
-                    info="Tell us about experience and what you learned"
-                  />
-                  <input type="submit" value="Submit" className="btn btn-info btn-block mt-4"/>
+                <TextAreaFieldGroup
+                  placeholder="Program Description"
+                  name="description"
+                  value={this.state.description}
+                  onChange={this.onChange}
+                  error={errors.description}
+                  info="Tell us about experience and what you learned"
+                />
+                <input
+                  type="submit"
+                  value="Submit"
+                  className="btn btn-info btn-block mt-4"
+                />
               </form>
             </div>
           </div>
@@ -148,7 +151,7 @@ class AddEducation extends Component {
 }
 
 AddEducation.propTypes = {
-addEducation: PropTypes.func.isRequired,
+  addEducation: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired,
   errors: PropTypes.object
 };
@@ -158,4 +161,7 @@ const mapStateToProps = state => ({
   errors: state.errors
 });
 
-export default connect(mapStateToProps, { addEducation })(withRouter(AddEducation));
+export default connect(
+  mapStateToProps,
+  { addEducation }
+)(withRouter(AddEducation));
