@@ -5,7 +5,8 @@ import {
   GET_ERRORS,
   GET_POSTS,
   POST_LOADING,
-  DELETE_POST
+  DELETE_POST,
+  GET_POST
 } from "./types";
 
 // Add Post
@@ -44,6 +45,25 @@ export const getPosts = () => dispatch => {
       })
     );
 };
+
+// Get post
+export const getPost = (postId) => dispatch => {
+    dispatch(setPostLoading);
+    axios
+      .get(`/api/posts/${postId}`)
+      .then(res =>
+        dispatch({
+          type: GET_POST,
+          payload: res.data
+        })
+      )
+      .catch(err =>
+        dispatch({
+          type: GET_POST,
+          payload: null
+        })
+      );
+  };
 
 // set loading state
 export const setPostLoading = () => {
