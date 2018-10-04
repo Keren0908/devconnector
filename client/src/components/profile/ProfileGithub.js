@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 class ProfileGithub extends Component {
@@ -34,13 +33,14 @@ class ProfileGithub extends Component {
             <div className="row">
                 <div className="col-md-">
                     <h4>
-                        <Link to={repo.html_url} className='text-info' target="_blank"/>
+                        <a href={repo.html_url} className='text-info' target='_blank'>
                         {repo.name}
+                        </a>
                     </h4>
                     <p>{repo.description}</p>
                 </div>
                
-                 {/* <div className="col-md-6">
+                  <div className="col-md-6">
                     <span className="badge badge-info mr-1">
                         Stars: {repo.stargazers_count}
                     </span>
@@ -50,7 +50,7 @@ class ProfileGithub extends Component {
                     <span className="badge badge-success">
                         Forks: {repo.forks_count}
                     </span> 
-                </div> */}
+                </div> 
                 
             </div>
         </div>
@@ -66,7 +66,7 @@ class ProfileGithub extends Component {
 }
 
 ProfileGithub.propTypes = {
-    username: PropTypes.string.isRequired
+    username: PropTypes.string
 }
 
 export default ProfileGithub;

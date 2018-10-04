@@ -25,9 +25,9 @@ class ProfileHeader extends Component {
                   <span>at {profile.company}</span>
                 )}
               </p>
-              <p>
+            
                 {isEmpty(profile.location) ? null : <p>{profile.location}</p>}
-              </p>
+              
               <p>
                 {isEmpty(profile.website) ? null : (
                   <a
@@ -43,7 +43,7 @@ class ProfileHeader extends Component {
                     className="text-white p-2"
                     href=""
                     target="_blank"
-                    disabled='disatbled'
+                    disabled="disatbled"
                   >
                     <i className="fab fa-twitter fa-2x" />
                   </a>
@@ -62,7 +62,7 @@ class ProfileHeader extends Component {
                     className="text-white p-2"
                     href=""
                     target="_blank"
-                    disabled='disatbled'
+                    disabled="disatbled"
                   >
                     <i className="fab fa-facebook fa-2x" />
                   </a>
@@ -76,12 +76,12 @@ class ProfileHeader extends Component {
                   </a>
                 )}
 
-                    {isEmpty(profile.social && profile.social.linkedin) ? (
+                {isEmpty(profile.social && profile.social.linkedin) ? (
                   <a
                     className="text-white p-2"
                     href=""
                     target="_blank"
-                    disabled='disatbled'
+                    disabled="disatbled"
                   >
                     <i className="fab fa-linkedin fa-2x" />
                   </a>
@@ -99,7 +99,7 @@ class ProfileHeader extends Component {
                     className="text-white p-2"
                     href=""
                     target="_blank"
-                    disabled='disatbled'
+                    disabled="disatbled"
                   >
                     <i className="fab fa-youtube fa-2x" />
                   </a>
@@ -117,7 +117,7 @@ class ProfileHeader extends Component {
                     className="text-white p-2"
                     href=""
                     target="_blank"
-                    disabled='disatbled'
+                    disabled="disatbled"
                   >
                     <i className="fab fa-instagram fa-2x" />
                   </a>
@@ -130,11 +130,6 @@ class ProfileHeader extends Component {
                     <i className="fab fa-instagram fa-2x" />
                   </a>
                 )}
-
-
-
-
-               
               </p>
             </div>
           </div>
