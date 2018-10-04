@@ -20,7 +20,7 @@ class EditProfile extends Component {
       status: "",
       skills: "",
       githubusername: "",
-      io: "",
+      bio: "",
       twitter: "",
       facebook: "",
       linkedin: "",
@@ -239,13 +239,14 @@ class EditProfile extends Component {
                   info="Please use comma separated values (eg. Java,HTML,CSS,JavaScript,PHP)"
                 />
                 <TextFieldGroup
-                  placeholder="Github Username"
+                  placeholder="Github User"
                   name="githubusername"
                   value={this.state.githubusername}
-                  onChange={this.ohange}
+                  onChange={this.onChange}
                   error={errors.githubusername}
                   info="If you want yo latest repos and a Github link, include your username"
                 />
+                
                 <TextAreaFieldGroup
                   placeholder="Short Bio"
                   name="bio"
@@ -254,7 +255,7 @@ class EditProfile extends Component {
                   error={errors.bio}
                   info="Tell us a little about yourself"
                 />
-
+                
                 <div className="mb-3">
                   <button
                     type="button"
