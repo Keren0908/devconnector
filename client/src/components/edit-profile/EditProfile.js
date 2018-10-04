@@ -220,7 +220,7 @@ class EditProfile extends Component {
                   value={this.state.website}
                   onChange={this.onChange}
                   error={errors.website}
-                  info="Could be your own or a location website"
+                  info="Could be your own or a location website (Please add 'http(s)://)"
                 />
                 <TextFieldGroup
                   placeholder="Location"
