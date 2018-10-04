@@ -17,7 +17,7 @@ class ProfileAbout extends Component {
         <div key={index} className='p-3'>
             <i className='fa fa-check' />{skill}
         </div>
-    ))
+    ));
     return (
       <div class="row">
         <div class="col-md-12">
