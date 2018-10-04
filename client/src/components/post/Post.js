@@ -5,6 +5,7 @@ import Loading from '../common/Loading';
 import { getPost } from '../../actions/postActions';
 import PostItem from '../posts/PostItem';
 import { Link } from 'react-router-dom';
+import CommentForm from './Post';
 
 class Post extends Component {
 
@@ -23,6 +24,7 @@ class Post extends Component {
         postContent = (
             <div>
                 <PostItem post={post} showAction={false}/>
+                
             </div>
         );
     }
@@ -45,7 +47,8 @@ class Post extends Component {
 
 Post.propTypes = {
     getPost: PropTypes.func.isRequired,
-    post: PropTypes.object.isRequired
+    post: PropTypes.object.isRequired,
+    
 }
 
 const mapStateToProps = state => ({
